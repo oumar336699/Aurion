@@ -52,19 +52,19 @@ def init_db():
 
 def recuperer_prix_actuel(max_retries=2):
     """
-    Récupère le prix instantané de PAXG/USDT.
+    Récupère le prix instantané de PAXG/USD.
     Endpoint public, aucune authentification requise.
     Inclut une logique de retry simple en cas d'erreur réseau.
     """
-    url = f"{BASE_URL}/api/v3/ticker/price"
+    url = "https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd"
 
     for attempt in range(max_retries + 1):
         try:
-            reponse = requests.get(url, params={"symbol": SYMBOLE}, timeout=10)
+            reponse = requests.get(url, timeout=10)
             reponse.raise_for_status()
             donnees = reponse.json()
 
-            prix = float(donnees["price"])
+            prix = float(donnees["pax-gold"]["usd"])
             horodatage = datetime.now(timezone.utc).isoformat()
 
             conn = get_db_connection()
@@ -77,7 +77,7 @@ def recuperer_prix_actuel(max_retries=2):
             cur.close()
             conn.close()
 
-            print(f"[OK] {horodatage} — PAXG/USDT = {prix} $")
+            print(f"[OK] {horodatage} — PAXG/USD = {prix} $")
             return prix
 
         except (requests.RequestException, psycopg2.Error) as e:
