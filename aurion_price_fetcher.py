@@ -56,11 +56,15 @@ def recuperer_prix_actuel(max_retries=2):
     Endpoint public, aucune authentification requise.
     Inclut une logique de retry simple en cas d'erreur réseau.
     """
-    url = "https://api.coingecko.com/api/v3/simple/price?ids=pax-gold&vs_currencies=usd"
+    url = "https://api.coingecko.com/api/v3/simple/price"
+    params = {"ids": "pax-gold", "vs_currencies": "usd"}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
 
     for attempt in range(max_retries + 1):
         try:
-            reponse = requests.get(url, timeout=10)
+            reponse = requests.get(url, params=params, headers=headers, timeout=10)
             reponse.raise_for_status()
             donnees = reponse.json()
 
