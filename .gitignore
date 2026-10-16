@@ -30,6 +30,7 @@ ENV/
 
 # Base de données locale
 aurion.db
+modele_aurion.pkl
 
 # IDE
 .vscode/
