@@ -2,8 +2,8 @@ name: Récupérer le prix PAXG
 
 on:
   schedule:
-    # Exécute toutes les 15 minutes (cron UTC)
-    - cron: '*/15 * * * *'
+    # Une clôture Binance 1h est collectée une fois par heure (cron UTC).
+    - cron: '5 * * * *'
   workflow_dispatch:  # Permet un déclenchement manuel
 
 jobs:
