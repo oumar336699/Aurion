@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Aurion",
+    "slug": "aurion-mobile",
+    "version": "1.0.0",
+    "scheme": "aurion",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#071426",
+    "primaryColor": "#D8B76A",
+    "plugins": ["expo-router"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.aurion.mobile",
+      "versionCode": 1,
+      "backgroundColor": "#071426",
+      "allowBackup": false,
+      "adaptiveIcon": {
+        "backgroundColor": "#071426",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
