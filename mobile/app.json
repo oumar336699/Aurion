@@ -9,7 +9,9 @@
     "userInterfaceStyle": "dark",
     "backgroundColor": "#071426",
     "primaryColor": "#D8B76A",
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -28,6 +30,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f015596d-2274-422e-be65-8ad31c7bc4b8"
+      }
     }
   }
 }
