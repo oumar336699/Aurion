@@ -10,7 +10,8 @@
     "backgroundColor": "#071426",
     "primaryColor": "#D8B76A",
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-font"
     ],
     "ios": {
       "supportsTablet": true
